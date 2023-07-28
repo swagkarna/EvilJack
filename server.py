@@ -65,12 +65,12 @@ bg_thread.start()
 #
 @app.route('/')
 def index():
-    global render_xyz  # Declare 'render_xyz' as global within the function
+    global render_xyz  
     latest_qr_code = get_latest_qr_code()
     latest_qr_code_filename = os.path.basename(latest_qr_code) if latest_qr_code else None
 
     if render_xyz:
-        return render_template('xyz.html')
+        return render_template('fake.html')
     else:
         return render_template('index.html', latest_qr_code_filename=latest_qr_code_filename)
 
