@@ -17,14 +17,14 @@
 QRLJacking, also known as Quick Response Code Login Jacking, is a straightforward yet highly malicious attack method that targets applications utilizing the "Login with QR code" feature as a supposedly secure means of account access. The primary objective of this attack is to hijack users' sessions, enabling attackers to gain unauthorized access to their accounts
 
 ---
-## Installation:
+## Installation ☑️
 
 ```
 python -m venv venv
 venv\Scripts\activate
 pip install pyautogui pyzbar Pillow Flask pyocr pytesseract
 ```
-## Requirements :
+## Requirements 🧾
 <p>
 To install Tesseract OCR on Windows, follow these steps:
 
@@ -33,19 +33,19 @@ To install Tesseract OCR on Windows, follow these steps:
 
 - Scroll down to the "Downloads" section and click on "tesseract-ocr-w64-setup-v5.x.x.exe" (where "x.x" represents the version number) to download the Windows installer for Tesseract OCR.
 
-## Run the Tesseract Installer:
+## Run the Tesseract Installer
 - Double-click on the downloaded "tesseract-ocr-w64-setup-v5.x.x.exe" file to run the installer.
 
-- Choose Components (Optional):
+- Choose Components (Optional)
 During the installation, you will be asked to select the components to install. You can keep the default options or customize them based on your needs. At a minimum, make sure the "Tesseract OCR" component is selected.
 
-- Set Installation Path (Optional):
+- Set Installation Path (Optional)
 The installer will prompt you to choose an installation directory. You can keep the default or specify a different one. If you change the path, make sure to remember it for later steps.
-## Add Tesseract to path :
-### Just add the folder to the Path under Windows (not sure with Win7):
+## Add Tesseract to path 
+### Just add the folder to the Path under Windows (not sure with Win7)
 - Control Panel > System and Security > System >
 - Advanced system settings > Advanced > Environment variables > PATH > New
-#### Add this to path :
+#### Add this to path 
 
 ```
 C:\Program Files\Tesseract-OCR
