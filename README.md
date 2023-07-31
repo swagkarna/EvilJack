@@ -79,10 +79,12 @@ C:\Program Files\Tesseract-OCR
 --- 
 
 ## EvilJack Demo   
-https://github.com/swagkarna/EvilJack/assets/46685308/f0d5af8c-c68d-458a-bc09-192e0cc83b18
+
+https://github.com/swagkarna/EvilJack/assets/46685308/77fd0f85-8f85-47f3-a4fd-a6ffca758cde
 
 ---
 ## EvilJack tested on following sites 
+
 - [X] Whatsapp
 - [X] Telegram
 - [X] Discord
