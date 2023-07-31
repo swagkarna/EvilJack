@@ -14,7 +14,9 @@
   ---
 ## What is QRLJacking?
 ---  
-### QRLJacking, also known as Quick Response Code Login Jacking, is a straightforward yet highly malicious attack method that targets applications utilizing the "Login with QR code" feature as a supposedly secure means of account access. The primary objective of this attack is to hijack users' sessions, enabling attackers to gain unauthorized access to their accounts
+
+QRLJacking, also known as Quick Response Code Login Jacking, is a straightforward yet highly malicious attack method that targets applications utilizing the "Login with QR code" feature as a supposedly secure means of account access. The primary objective of this attack is to hijack users' sessions, enabling attackers to gain unauthorized access to their accounts
+
 ---
 ## Installation:
 
