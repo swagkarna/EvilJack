@@ -83,6 +83,20 @@ C:\Program Files\Tesseract-OCR
 https://github.com/swagkarna/EvilJack/assets/46685308/77fd0f85-8f85-47f3-a4fd-a6ffca758cde
 
 ---
+###  script  to auto click the QR code reload element on whatsappweb
+
+Open chrome/firefox and navigate to `console tab` from developer option and paste the following code
+```
+function checkAndClickButton() {
+  const button = document.querySelector('.Jht5u');
+  if (button) {
+    button.click();
+  }
+}
+
+// Set an interval to periodically check and click the button (e.g., every 5 seconds)
+setInterval(checkAndClickButton, 2000);
+```
 ## EvilJack tested on following sites 
 
 - [X] Whatsapp
