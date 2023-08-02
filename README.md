@@ -107,11 +107,6 @@ setInterval(checkAndClickButton, 2000);
 - [X] Tiktok 
 ---
 
-## Disclaimer
-<b>Swagkarna Provides no warranty and will not be responsible for any direct or indirect damage caused by this tool.<br>
+## Disclaimer ⚠️
+<b>swagkarna Provides no warranty and will not be responsible for any direct or indirect damage caused by this tool.<br>
   EVILJACK is built for Educational and Internal use ONLY.</b>
-
----
-### ❤️Supporters❤️
-[![Stargazers repo roster for @swagkarna/EvilJack](https://reporoster.com/stars/swagkarna/EvilJack)](https://github.com/swagkarna/Rafel-Rat/stargazers)
-[![Forkers repo roster for @swagkarna/EvilJack](https://reporoster.com/forks/swagkarna/EvilJack)](https://github.com/swagkarna/Rafel-Rat/network/members)
