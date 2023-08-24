@@ -24,6 +24,8 @@ python -m venv venv
 venv\Scripts\activate
 pip install pyautogui pyzbar Pillow Flask pyocr pytesseract
 ```
+If you get dll error in pyzbar module visit this site:
+https://stackoverflow.com/questions/64570443/q-how-to-fix-the-missing-dependancies-in-pyzbar
 ## Requirements 🧾
 <p>
 To install Tesseract OCR on Windows, follow these steps:
