@@ -83,4 +83,4 @@ def latest_qr_code_image():
         return jsonify({"qr_image": None, "xyz_html_rendered": render_xyz})
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=5000)
