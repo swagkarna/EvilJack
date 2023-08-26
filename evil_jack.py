@@ -2,7 +2,7 @@ import os
 import time
 import pyautogui
 from pyzbar import pyzbar
-from PIL import Image
+from PIL import Image, ImageOps
 
 def capture_and_save_qr_codes():
     if not os.path.exists("evil_qr_codes"):
@@ -10,9 +10,10 @@ def capture_and_save_qr_codes():
     
     while True:
         try:
-          screenshot = pyautogui.screenshot()
+            screenshot = pyautogui.screenshot()
         except Exception as e:
-          print(f"An error occurred while taking a screenshot: {str(e)}")
+            print(f"An error occurred while taking a screenshot: {str(e)}")
+            continue
 
         qr_codes = pyzbar.decode(screenshot)
         if qr_codes:
@@ -21,9 +22,14 @@ def capture_and_save_qr_codes():
                 print(f"Detected QR code ({idx}): {qr_data}")
                 qr_box = qr_code.rect
                 qr_area = screenshot.crop((qr_box.left, qr_box.top, qr_box.left + qr_box.width, qr_box.top + qr_box.height))
-                qr_area.save(f"evil_qr_codes/qr_code.png")
 
-        time.sleep(0.5)
+                # Resize and compress the QR code image
+                qr_area.thumbnail((100, 100))  # Resize to 100x100 pixels
+
+                # Save the compressed QR code image
+                qr_area.save(f"evil_qr_codes/qr_code_{idx}.png")
+
+        time.sleep(1)
 
 if __name__ == "__main__":
     try:
