@@ -1,4 +1,3 @@
-
 import os
 import time
 import pyautogui
@@ -10,7 +9,11 @@ def capture_and_save_qr_codes():
         os.mkdir("evil_qr_codes")
     
     while True:
-        screenshot = pyautogui.screenshot()
+        try:
+          screenshot = pyautogui.screenshot()
+        except Exception as e:
+          print(f"An error occurred while taking a screenshot: {str(e)}")
+
         qr_codes = pyzbar.decode(screenshot)
         if qr_codes:
             for idx, qr_code in enumerate(qr_codes, start=1):
