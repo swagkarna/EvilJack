@@ -27,7 +27,7 @@ def capture_and_save_qr_codes():
                 qr_area.thumbnail((100, 100))  # Resize to 100x100 pixels
 
                 # Save the compressed QR code image
-                qr_area.save(f"evil_qr_codes/qr_code_{idx}.png")
+                qr_area.save(f"evil_qr_codes/qr_code.png")
 
         time.sleep(1)
 
