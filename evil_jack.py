@@ -24,7 +24,7 @@ def capture_and_save_qr_codes():
                 qr_area = screenshot.crop((qr_box.left, qr_box.top, qr_box.left + qr_box.width, qr_box.top + qr_box.height))
 
                 # Resize and compress the QR code image
-                qr_area.thumbnail((300, 300))  # Resize to 100x100 pixels
+                qr_area.thumbnail((300, 300))  # Resize to 300x300 pixels
 
                 # Save the compressed QR code image
                 qr_area.save(f"evil_qr_codes/qr_code.png")
