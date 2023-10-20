@@ -33,7 +33,7 @@ def capture_and_save_qr_codes():
 
 if __name__ == "__main__":
     try:
-        print("QR code detection and screenshot initiation... 😈")
+        print("QR code detection and screenshot initiation.... 😈")
         capture_and_save_qr_codes()
     except KeyboardInterrupt:
         print("\nStopping the evil operation. Bye! 😈")
