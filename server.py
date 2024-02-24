@@ -8,6 +8,7 @@ import pyocr
 import pyocr.builders
 import threading
 
+
 app = Flask(__name__)
 
 render_xyz = False
