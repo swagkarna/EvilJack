@@ -4,6 +4,7 @@ import time
 import pyautogui
 from pyzbar import pyzbar
 from PIL import Image, ImageOps
+from pyzbar.pyzbar import ZBarSymbol
 
 def capture_and_save_qr_codes():
     if not os.path.exists("evil_qr_codes"):
@@ -16,7 +17,7 @@ def capture_and_save_qr_codes():
             print(f"An error occurred while taking a screenshot: {str(e)}")
             continue
 
-        qr_codes = pyzbar.decode(screenshot)
+        qr_codes = pyzbar.decode(screenshot, symbols=[ZBarSymbol.QRCODE])
         if qr_codes:
             for idx, qr_code in enumerate(qr_codes, start=1):
                 qr_data = qr_code.data.decode('utf-8')
